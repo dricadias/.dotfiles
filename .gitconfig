@@ -1,0 +1,10 @@
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	name = dricadias
+	email = 89052954+dricadias@users.noreply.github.com 
+[core]
+	editor = nvim
+[diff]
+	submodule = log
