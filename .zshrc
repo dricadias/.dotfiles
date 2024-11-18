@@ -45,6 +45,9 @@ alias mini='~/mini-moulinette/mini-moul.sh'
 alias ga="git add"
 alias gst="git status"
 alias gc="git commit -m"
+alias gp="git push"
+alias pl="git pull"
+alias glgg="git log --graph --oneline --decorate"
 
 alias v="nvim"
 
