@@ -1,12 +1,8 @@
 # Set up the prompt
 
-alias mycc="cc -Wall -Wextra -Werror"
-
-alias norm="norminette -R CheckForbiddenSourceHeader"
-
 autoload -Uz promptinit
 promptinit
-prompt adam1
+# prompt adam1
 
 setopt histignorealldups sharehistory
 
@@ -22,25 +18,30 @@ HISTFILE=~/.zsh_history
 autoload -Uz compinit
 compinit
 
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format 'Completing %d'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
-
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 alias mini='~/mini-moulinette/mini-moul.sh'
 
+##########################
+### Zap Plugin Manager ###
+##########################
+
+[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+plug "zsh-users/zsh-autosuggestions"
+plug "zap-zsh/supercharge"
+plug "zsh-users/zsh-syntax-highlighting"
+plug "hlissner/zsh-autopair"
+plug "zsh-users/zsh-history-substring-search"
+plug "MichaelAquilina/zsh-you-should-use"
+plug "zap-zsh/completions"
+plug "zap-zsh/sudo"
+plug "web-search"
+plug "zap-zsh/fzf"
+plug "zap-zsh/web-search"
+plug "jeffreytse/zsh-vi-mode"
+
+# Aliases
+alias mycc="cc -Wall -Wextra -Werror"
+
+alias norm="norminette -R CheckForbiddenSourceHeader"
 
 alias ga="git add"
 alias gst="git status"
@@ -72,3 +73,13 @@ alias paco=/home/adias-do/francinette-image/run.sh
 
 # Load Homebrew config script
 source $HOME/.brewconfig.zsh
+
+############################
+### Load Starship Prompt ###
+############################
+
+if command -v starship > /dev/null 2>&1; then
+    eval "$(starship init zsh)"
+else
+    ZSH_THEME="refined"
+fi
