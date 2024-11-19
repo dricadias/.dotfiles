@@ -4,10 +4,12 @@
 # https://starship.rs/config/#prompt
 # Default Prompt for reference
 format = '''
-$virtualenv$directory$git_branch$git_commit$git_status$c$cmd_duration$python$shlvl
-$jobs$hostname$username $shell $character
+$virtualenv$git_branch$git_commit$git_status$c$cmd_duration$python$shlvl
+$username$directory$shell $character
 '''
 right_format = "$status${custom.minitalk}${custom.valgrind}$localip$time $battery$os"
+
+# $jobs$hostname
 
 continuation_prompt = '▶▶ '
 # Don't print a new line at the start of the prompt
@@ -42,9 +44,9 @@ vimcmd_visual_symbol = "[❭ ](bold yellow)"
 [directory]
 read_only = " 󰌾"
 truncate_to_repo = true
-style = "bold cyan underline"
+style = "bold cyan"
 truncation_length = 4
-truncation_symbol = "../"
+#truncation_symbol = "../"
 format = "[$path]($style)[$lock_symbol]($lock_style) "
 
 [git_branch]
