@@ -39,7 +39,7 @@ plug "zap-zsh/web-search"
 plug "jeffreytse/zsh-vi-mode"
 
 # Aliases
-alias mycc="cc -Wall -Wextra -Werror"
+alias mycc="cc -g -Wall -Wextra -Werror"
 
 alias norm="norminette -R CheckForbiddenSourceHeader"
 
