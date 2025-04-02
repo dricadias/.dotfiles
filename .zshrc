@@ -52,6 +52,8 @@ alias glgg="git log --graph --oneline --decorate"
 
 alias v="nvim"
 
+alias vscode='flatpak run com.visualstudio.code --reuse-window'
+
 if ! systemctl status docker | grep running &> /dev/null; then
 		echo "[Francinette] Starting Docker..."
 		sleep 1
